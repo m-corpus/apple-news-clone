@@ -1,9 +1,10 @@
-import { StyleSheet, View, SectionList, Text } from "react-native";
+import { StyleSheet, View, SectionList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { format } from "date-fns";
 
 import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
+import TopStories from "@/components/news/TopStories";
 
 import homeNews from "@assets/data/homeNews.json";
 
@@ -29,11 +30,10 @@ export default function HomeScreen() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
       <View style={styles.container}>
         <SectionList
           sections={homeNews}
-          renderItem={({ item }) => <Text>Hello World</Text>}
           ListHeaderComponent={
             <ListHeader title="News" subTitle={format(new Date(), "MMMM dd")} />
           }
@@ -47,7 +47,10 @@ export default function HomeScreen() {
               />
             );
           }}
+          renderItem={({ item }) => <TopStories news={item} />}
+          ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
           stickySectionHeadersEnabled={false}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>

@@ -8,7 +8,7 @@ type TPublisher = {
   name: string;
 };
 
-type TNews = {
+export type TNews = {
   id: string;
   title: string;
   body: string;
@@ -18,7 +18,7 @@ type TNews = {
   publisher: TPublisher;
 };
 
-type TMagazine = {
+export type TMagazine = {
   id: string;
   title: string;
   image: string;
