@@ -40,9 +40,9 @@ export default function ForYou({ news }: ForYouProps) {
 const styles = StyleSheet.create({
   container: {
     gap: 28,
-    borderBottomWidth: 1,
-    borderBottomColor: "lightgrey",
-    paddingBottom: 12,
+    padding: 12,
+    backgroundColor: "white",
+    borderRadius: 12,
   },
   detailsContainer: {
     flexDirection: "row",
