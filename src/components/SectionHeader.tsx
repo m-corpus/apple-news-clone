@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 type SectionHeaderProps = {
   title: string;
   subTitle?: string;
-  color?: string;
+  color: string;
 };
 
 export default function SectionHeader({
@@ -13,7 +13,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, color && { color }]}>{title}</Text>
+      <Text style={[styles.title, { color }]}>{title}</Text>
 
       {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
     </View>
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   title: {
-    color: "black",
     fontSize: 28,
     fontWeight: "800",
   },

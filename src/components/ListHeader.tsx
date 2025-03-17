@@ -10,7 +10,7 @@ export default function ListHeader({ title, subTitle }: ListHeaderProps) {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <FontAwesome6 name="apple" size={28} color="black" />
+        <FontAwesome6 name="apple" size={32} color="black" />
         <Text style={styles.title}>{title}</Text>
       </View>
 
@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "800",
   },
   subTitle: {
     color: "grey",
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "800",
   },
 });
