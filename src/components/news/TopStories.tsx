@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     aspectRatio: 4 / 3,
   },
   publisherImage: {
-    width: 80,
+    width: 60,
     height: 28,
   },
   title: {
