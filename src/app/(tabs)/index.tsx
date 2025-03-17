@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
 import TopStories from "@/components/news/TopStories";
+import TrendingStories from "@/components/news/TrendingStories";
 
 import homeNews from "@assets/data/homeNews.json";
 
@@ -47,7 +48,9 @@ export default function HomeScreen() {
               />
             );
           }}
-          renderItem={({ item }) => <TopStories news={item} />}
+          renderItem={({ item, index }) => (
+            <TrendingStories index={index + 1} news={item} />
+          )}
           ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
           stickySectionHeadersEnabled={false}
           showsVerticalScrollIndicator={false}

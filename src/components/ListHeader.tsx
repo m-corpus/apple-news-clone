@@ -22,7 +22,6 @@ export default function ListHeader({ title, subTitle }: ListHeaderProps) {
 const styles = StyleSheet.create({
   container: {
     gap: 4,
-    marginBottom: 20,
   },
   titleContainer: {
     flexDirection: "row",

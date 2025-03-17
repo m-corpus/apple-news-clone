@@ -23,7 +23,7 @@ export default function SectionHeader({
 const styles = StyleSheet.create({
   container: {
     gap: 4,
-    marginVertical: 20,
+    marginVertical: 40,
   },
   title: {
     fontSize: 28,

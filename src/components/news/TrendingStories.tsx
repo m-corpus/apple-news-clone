@@ -1,20 +1,23 @@
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { formatDistanceToNow } from "date-fns";
 
 import NewsFooter from "@/components/news/NewsFooter";
 
 import { TNews } from "@/types";
 
-type TopStoriesProps = {
+type TrendingStoriesProps = {
+  index: number;
   news: TNews;
 };
 
-export default function TopStories({ news }: TopStoriesProps) {
+export default function TrendingStories({ index, news }: TrendingStoriesProps) {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: news.image }} />
+      <View style={styles.bubbleContainer}>
+        <Text style={styles.bubbleText}>{index}</Text>
+      </View>
 
-      <View style={{ padding: 12, gap: 28 }}>
+      <View style={styles.detailsContainer}>
         <View style={{ gap: 4 }}>
           <Image
             style={styles.publisherImage}
@@ -35,20 +38,34 @@ export default function TopStories({ news }: TopStoriesProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    overflow: "hidden",
+    flexDirection: "row",
+    gap: 24,
   },
-  image: {
-    width: "100%",
-    aspectRatio: 4 / 3,
+  bubbleContainer: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "orange",
+    borderRadius: 20,
+  },
+  bubbleText: {
+    color: "white",
+    fontWeight: "500",
+  },
+  detailsContainer: {
+    flexShrink: 1,
+    gap: 28,
+    borderBottomWidth: 1,
+    borderBottomColor: "lightgrey",
+    paddingBottom: 12,
   },
   publisherImage: {
-    width: 80,
+    width: 60,
     height: 28,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "500",
   },
 });
