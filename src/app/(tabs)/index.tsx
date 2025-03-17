@@ -6,8 +6,10 @@ import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
 import TopStories from "@/components/news/TopStories";
 import TrendingStories from "@/components/news/TrendingStories";
+import ForYou from "@/components/news/ForYou";
 
 import homeNews from "@assets/data/homeNews.json";
+import { TNews } from "@/types";
 
 export default function HomeScreen() {
   const getSectionHeaderProps = (sectionTitle: string) => {
@@ -30,6 +32,18 @@ export default function HomeScreen() {
     };
   };
 
+  const renderItem = (item: TNews, index: number, sectionTitle: string) => {
+    if (sectionTitle === "Top Stories") {
+      return <TopStories news={item} />;
+    } else if (sectionTitle === "Trending Stories") {
+      return <TrendingStories index={index + 1} news={item} />;
+    } else if (sectionTitle === "For You") {
+      return <ForYou news={item} />;
+    } else {
+      return null;
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
       <View style={styles.container}>
@@ -48,9 +62,9 @@ export default function HomeScreen() {
               />
             );
           }}
-          renderItem={({ item, index }) => (
-            <TrendingStories index={index + 1} news={item} />
-          )}
+          renderItem={({ item, index, section }) =>
+            renderItem(item, index, section.title)
+          }
           ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
           stickySectionHeadersEnabled={false}
           showsVerticalScrollIndicator={false}
