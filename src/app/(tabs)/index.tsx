@@ -1,12 +1,13 @@
 import { StyleSheet, View, SectionList } from "react-native";
+import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { format } from "date-fns";
 
 import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
-import TopStories from "@/components/news/TopStories";
-import TrendingStories from "@/components/news/TrendingStories";
-import ForYou from "@/components/news/ForYou";
+import TopStories from "@/components/list-items/TopStories";
+import TrendingStories from "@/components/list-items/TrendingStories";
+import ForYou from "@/components/list-items/ForYou";
 
 import homeNews from "@assets/data/homeNews.json";
 import { TNews } from "@/types";
@@ -33,15 +34,18 @@ export default function HomeScreen() {
   };
 
   const renderItem = (item: TNews, index: number, sectionTitle: string) => {
+    let component = null;
+
     if (sectionTitle === "Top Stories") {
-      return index === 0 ? <TopStories news={item} /> : <ForYou news={item} />;
+      component =
+        index === 0 ? <TopStories news={item} /> : <ForYou news={item} />;
     } else if (sectionTitle === "Trending Stories") {
-      return <TrendingStories index={index + 1} news={item} />;
+      component = <TrendingStories index={index + 1} news={item} />;
     } else if (sectionTitle === "For You") {
-      return <ForYou news={item} />;
-    } else {
-      return null;
+      component = <ForYou news={item} />;
     }
+
+    return <Link href={`/news/${item.id}`}>{component}</Link>;
   };
 
   return (

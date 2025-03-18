@@ -1,7 +1,7 @@
 import { StyleSheet, View, Image, Text } from "react-native";
 import { formatDistanceToNow } from "date-fns";
 
-import NewsFooter from "@/components/news/NewsFooter";
+import NewsFooter from "@/components/list-items/NewsFooter";
 
 import { TNews } from "@/types";
 

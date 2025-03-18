@@ -16,7 +16,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="newsPlus"
+        name="news-plus"
         options={{
           title: "News+",
           tabBarIcon: ({ color }) => (
