@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 
-import FollowButton from "../FollowButton";
-import FollowingButton from "../FollowingButton";
+import OutlineButton from "@/components/OutlineButton";
+import FollowingButton from "@/components/FollowingButton";
 
 import { TMagazine } from "@/types";
 
@@ -25,7 +25,7 @@ export default function Magazine({ magazine }: MagazineProps) {
       {isFollow ? (
         <FollowingButton onPress={handleFollow} />
       ) : (
-        <FollowButton onPress={handleFollow} />
+        <OutlineButton text="Follow" color="orangered" onPress={handleFollow} />
       )}
     </View>
   );

@@ -1,13 +1,22 @@
 import { StyleSheet, Pressable, Text } from "react-native";
 
-type FollowButtonProps = {
+type OutlineButtonProps = {
+  text: string;
+  color?: string;
   onPress: () => void;
 };
 
-export default function FollowButton({ onPress }: FollowButtonProps) {
+export default function OutlineButton({
+  text,
+  color,
+  onPress,
+}: OutlineButtonProps) {
   return (
-    <Pressable style={styles.container} onPress={onPress}>
-      <Text style={styles.text}>Follow</Text>
+    <Pressable
+      style={[styles.container, color && { borderColor: color }]}
+      onPress={onPress}
+    >
+      <Text style={[styles.text, color && { color }]}>{text}</Text>
     </Pressable>
   );
 }
@@ -16,7 +25,7 @@ const styles = StyleSheet.create({
   container: {
     height: 28,
     borderWidth: 1,
-    borderColor: "orangered",
+    borderColor: "black",
     borderRadius: 100,
     paddingHorizontal: 12,
     justifyContent: "center",
@@ -25,7 +34,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     fontWeight: "500",
-    color: "orangered",
+    color: "black",
     textTransform: "uppercase",
   },
 });
