@@ -34,7 +34,7 @@ export default function HomeScreen() {
 
   const renderItem = (item: TNews, index: number, sectionTitle: string) => {
     if (sectionTitle === "Top Stories") {
-      return <TopStories news={item} />;
+      return index === 0 ? <TopStories news={item} /> : <ForYou news={item} />;
     } else if (sectionTitle === "Trending Stories") {
       return <TrendingStories index={index + 1} news={item} />;
     } else if (sectionTitle === "For You") {
